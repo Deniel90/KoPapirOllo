@@ -28,9 +28,8 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:id="@+id/gep_HP1"
+                    android:id="@+id/gep_HP3"
                     android:background="@drawable/heart2"/>
-
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -39,7 +38,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:id="@+id/gep_HP3"
+                    android:id="@+id/gep_HP1"
                     android:background="@drawable/heart2"/>
             </LinearLayout>
 
@@ -64,7 +63,6 @@
                     android:layout_height="30dp"
                     android:id="@+id/player_HP1"
                     android:background="@drawable/heart2"/>
-
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
