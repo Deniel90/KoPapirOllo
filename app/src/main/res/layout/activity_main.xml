@@ -23,128 +23,140 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp">
+                android:layout_alignParentLeft="true">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
                     android:id="@+id/gep_HP3"
                     android:src="@drawable/heart2"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
                     android:id="@+id/gep_HP2"
                     android:src="@drawable/heart2"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
                     android:id="@+id/gep_HP1"
                     android:src="@drawable/heart2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gép"
+                    android:textSize="30sp"
+                    android:textColor="@color/colorText"/>
             </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gép       Játékos"
-                android:layout_centerHorizontal="true"
-                android:textSize="30sp"
-                android:textColor="@color/colorText"
-                />
 
             <!--A játékos életei-->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="6dp">
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Játékos"
+                    android:textSize="30sp"
+                    android:textColor="@color/colorText"/>
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
                     android:id="@+id/player_HP1"
-                    android:src="@drawable/heart2"/>
-                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/heart2" />
+
+                <ImageView
                     android:id="@+id/player_HP2"
-                    android:src="@drawable/heart2"/>
-                <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/heart2" />
+
+                <ImageView
                     android:id="@+id/player_HP3"
-                    android:src="@drawable/heart2"/>
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/heart2" />
             </LinearLayout>
         </RelativeLayout>
 
         <!--Eredmények-->
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eredmények"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            android:textColor="@color/colorText"/>
+            android:layout_height="wrap_content">
 
-        <!--Játékos nyerések-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <TextView
+            <!--Gép nyerések-->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Játékos: "
-                android:textSize="20sp"
-                android:textColor="@color/colorText"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/player_eredmeny"
-                android:textSize="20sp"
-                android:textColor="@color/colorText"/>
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:layout_alignParentLeft="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nyereség: "
+                    android:textSize="20sp"
+                    android:textColor="@color/colorText"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:id="@+id/gep_eredmeny"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorText"/>
+            </LinearLayout>
 
-        <!--Gép nyerések-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <TextView
+            <!--Döntetlenek-->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Gép: "
-                android:textSize="20sp"
-                android:textColor="@color/colorText"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:id="@+id/gep_eredmeny"
-                android:textSize="20sp"
-                android:textColor="@color/colorText"/>
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:layout_centerInParent="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Döntetlen: "
+                    android:textSize="20sp"
+                    android:textColor="@color/colorText"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:id="@+id/dontetlen_korok_szama"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorText"/>
+            </LinearLayout>
 
-        <!--Döntetlenek száma-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Döntetlen: "
-                android:textColor="@color/colorText"/>
-            <TextView
+            <!--Játékos nyerések-->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="0"
-                android:id="@+id/text_dontetlenek"
-                android:textColor="@color/colorText"/>
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:layout_alignParentRight="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nyereség: "
+                    android:textSize="20sp"
+                    android:textColor="@color/colorText"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:id="@+id/player_eredmeny"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorText"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+
 
 
         <!--Gép választása-->
@@ -160,7 +172,7 @@
             android:layout_height="50dp"
             android:text="A gép választása"
             android:textSize="30sp"
-            android:textAlignment="center"
+            android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/colorText" />
 
@@ -176,7 +188,7 @@
             android:layout_height="50sp"
             android:text="A te választásod"
             android:textSize="30sp"
-            android:textAlignment="center"
+            android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:textColor="@color/colorText" />
 

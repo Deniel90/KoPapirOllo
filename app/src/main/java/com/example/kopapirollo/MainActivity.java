@@ -1,7 +1,9 @@
 package com.example.kopapirollo;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +14,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView gepHP1, gepHP2, gepHP3, playerHP1, playerHP2, playerHP3, img_gepchoose, img_playerchoose;
-    private TextView playerEredmeny, gepEredmeny, dontetlenek;
+    private TextView playerEredmeny, gepEredmeny, dontetlenEredmeny;
     private Button btn_Ko, btn_Papir, btn_Ollo;
-    private String playerValasztas;
-    private String gepValasztas;
 
-    private int PlayerPont, GepPont, Dontetlen, JatekosPontja, GepPontja, gepszam, playerElet, gepElet;
+    private String playerValasztas, gepValasztas;
+    private int JatekosPontja, GepPontja, gepszam, playerElet, gepElet, dontetlen_korok_szama;
+    private AlertDialog.Builder uzenet;
+    private Toast sajatToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //olló gomb
-        btn_Ollo.setOnClickListener(new View.OnClickListener() {
+        btn_Ollo.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 img_playerchoose.setImageResource(R.drawable.scissors);
@@ -60,6 +64,68 @@ public class MainActivity extends AppCompatActivity {
                 Jatek();
             }
         });
+    }
+
+    private void init()
+    {
+        gepHP1 = findViewById(R.id.gep_HP1);
+        gepHP2 = findViewById(R.id.gep_HP2);
+        gepHP3 = findViewById(R.id.gep_HP3);
+
+        playerHP1 = findViewById(R.id.player_HP1);
+        playerHP2 = findViewById(R.id.player_HP2);
+        playerHP3 = findViewById(R.id.player_HP3);
+
+        playerEredmeny = findViewById(R.id.player_eredmeny);
+        gepEredmeny = findViewById(R.id.gep_eredmeny);
+        dontetlenEredmeny = findViewById(R.id.dontetlen_korok_szama);
+
+        img_gepchoose = findViewById(R.id.image_gepChoose);
+        img_playerchoose = findViewById(R.id.image_playerChoose);
+
+        btn_Ko = findViewById(R.id.btn_Ko);
+        btn_Papir = findViewById(R.id.btn_Papir);
+        btn_Ollo = findViewById(R.id.btn_Ollo);
+
+        JatekosPontja = 0;
+        GepPontja = 0;
+        dontetlen_korok_szama = 0;
+
+        UjJatek();
+
+        uzenet = new AlertDialog.Builder(MainActivity.this);
+        uzenet.setCancelable(false).setMessage("Szeretne új játékot játszani?").setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                UjJatek();
+            }
+        });
+        uzenet.setNegativeButton("Nem", new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                finish();
+            }
+        });
+    }
+
+    private void UjJatek()
+    {
+        playerElet = 3;
+        gepElet = 3;
+
+        playerHP1.setImageResource(R.drawable.heart2);
+        playerHP2.setImageResource(R.drawable.heart2);
+        playerHP3.setImageResource(R.drawable.heart2);
+
+        gepHP1.setImageResource(R.drawable.heart2);
+        gepHP2.setImageResource(R.drawable.heart2);
+        gepHP3.setImageResource(R.drawable.heart2);
+
+        img_playerchoose.setImageResource(android.R.color.transparent);
+        img_gepchoose.setImageResource(android.R.color.transparent);
     }
 
     private void Jatek()
@@ -82,26 +148,22 @@ public class MainActivity extends AppCompatActivity {
         //döntetlen
         if (gepValasztas == playerValasztas)
         {
-            Dontetlen++;
-            dontetlenek.setText(Dontetlen+"");
-            Toast.makeText(MainActivity.this, "Döntetlen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Ez a kör döntetlen", Toast.LENGTH_SHORT).show();
+            dontetlen_korok_szama++;
+            dontetlenEredmeny.setText(dontetlen_korok_szama+"");
         }
         //játékos nyert
         else if (gepValasztas == "ko" && playerValasztas == "papir" ||
                 gepValasztas == "papir" && playerValasztas == "ollo" ||
                 gepValasztas == "ollo" && playerValasztas == "ko")
         {
-            JatekosPontja++;
-            playerEredmeny.setText(JatekosPontja+"");
-            Toast.makeText(MainActivity.this, "A játékos nyert", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Ezt a kört a játékos nyerte", Toast.LENGTH_SHORT).show();
             gepElet--;
         }
         //gép nyert
         else
         {
-            GepPontja++;
-            gepEredmeny.setText(GepPontja+"");
-            Toast.makeText(MainActivity.this, "A gép nyert", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Ezt a kört a gép nyerte", Toast.LENGTH_SHORT).show();
             playerElet--;
         }
 
@@ -122,42 +184,23 @@ public class MainActivity extends AppCompatActivity {
         //végső nyertes kihirdetése
         if (gepElet == 0)
         {
-            //AlertDialog: "Játékos nyerte a játszmát"
-        } else if (playerElet == 0)
-        {
-            //AlertDialog: "A gép nyerte a játszmát"
+            JatekosPontja++;
+            playerEredmeny.setText(JatekosPontja+"");
+
+            //TODO: custom toast
+
+            uzenet.setTitle("Győzelem");
+            AlertDialog dialog = uzenet.create();
+            dialog.show();
         }
+        else if (playerElet == 0)
+        {
+            GepPontja++;
+            gepEredmeny.setText(GepPontja+"");
 
-        //AlertDialog: játszma végén új játék? Igen -> init() , nem -> bezár
-    }
-
-    private void init()
-    {
-        gepHP1 = findViewById(R.id.gep_HP1);
-        gepHP2 = findViewById(R.id.gep_HP2);
-        gepHP3 = findViewById(R.id.gep_HP3);
-
-        playerHP1 = findViewById(R.id.player_HP1);
-        playerHP2 = findViewById(R.id.player_HP2);
-        playerHP3 = findViewById(R.id.player_HP3);
-
-        playerEredmeny = findViewById(R.id.player_eredmeny);
-        gepEredmeny = findViewById(R.id.gep_eredmeny);
-        dontetlenek = findViewById(R.id.text_dontetlenek);
-
-        img_gepchoose = findViewById(R.id.image_gepChoose);
-        img_playerchoose = findViewById(R.id.image_playerChoose);
-
-        btn_Ko = findViewById(R.id.btn_Ko);
-        btn_Papir = findViewById(R.id.btn_Papir);
-        btn_Ollo = findViewById(R.id.btn_Ollo);
-
-        PlayerPont = 0;
-        GepPont = 0;
-        Dontetlen = 0;
-        JatekosPontja = 0;
-        GepPontja = 0;
-        playerElet = 3;
-        gepElet = 3;
+            uzenet.setTitle("Vereség");
+            AlertDialog dialog = uzenet.create();
+            dialog.show();
+        }
     }
 }
