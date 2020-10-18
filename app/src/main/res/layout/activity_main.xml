@@ -29,17 +29,17 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:id="@+id/gep_HP3"
-                    android:background="@drawable/heart2"/>
+                    android:src="@drawable/heart2"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:id="@+id/gep_HP2"
-                    android:background="@drawable/heart2"/>
+                    android:src="@drawable/heart2"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:id="@+id/gep_HP1"
-                    android:background="@drawable/heart2"/>
+                    android:src="@drawable/heart2"/>
             </LinearLayout>
 
             <TextView
@@ -62,17 +62,17 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:id="@+id/player_HP1"
-                    android:background="@drawable/heart2"/>
+                    android:src="@drawable/heart2"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:id="@+id/player_HP2"
-                    android:background="@drawable/heart2"/>
+                    android:src="@drawable/heart2"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:id="@+id/player_HP3"
-                    android:background="@drawable/heart2"/>
+                    android:src="@drawable/heart2"/>
             </LinearLayout>
         </RelativeLayout>
 

@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         if (gepValasztas == playerValasztas)
         {
             Dontetlen++;
-            dontetlenek.setText(Dontetlen);
+            dontetlenek.setText(Dontetlen+"");
             Toast.makeText(MainActivity.this, "Döntetlen", Toast.LENGTH_SHORT).show();
         }
         //játékos nyert
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 gepValasztas == "ollo" && playerValasztas == "ko")
         {
             JatekosPontja++;
-            playerEredmeny.setText(JatekosPontja);
+            playerEredmeny.setText(JatekosPontja+"");
             Toast.makeText(MainActivity.this, "A játékos nyert", Toast.LENGTH_SHORT).show();
             gepElet--;
         }
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             GepPontja++;
-            gepEredmeny.setText(GepPontja);
+            gepEredmeny.setText(GepPontja+"");
             Toast.makeText(MainActivity.this, "A gép nyert", Toast.LENGTH_SHORT).show();
             playerElet--;
         }
