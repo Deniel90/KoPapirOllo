@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
     private void UjJatek()
@@ -186,8 +187,6 @@ public class MainActivity extends AppCompatActivity {
         {
             JatekosPontja++;
             playerEredmeny.setText(JatekosPontja+"");
-
-            //TODO: custom toast
 
             uzenet.setTitle("Győzelem");
             AlertDialog dialog = uzenet.create();

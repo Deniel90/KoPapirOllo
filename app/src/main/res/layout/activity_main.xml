@@ -63,21 +63,18 @@
                     android:text="Játékos"
                     android:textSize="30sp"
                     android:textColor="@color/colorText"/>
-
                 <ImageView
                     android:id="@+id/player_HP1"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/heart2" />
-
                 <ImageView
                     android:id="@+id/player_HP2"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/heart2" />
-
                 <ImageView
                     android:id="@+id/player_HP3"
                     android:layout_width="30dp"
@@ -156,9 +153,6 @@
             </LinearLayout>
         </RelativeLayout>
 
-
-
-
         <!--Gép választása-->
         <ImageView
             android:layout_width="100dp"
@@ -176,6 +170,7 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/colorText" />
 
+        <!--Játékos választása-->
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -192,6 +187,7 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/colorText" />
 
+        <!--Választógombok-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
